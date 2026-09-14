@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Home</title>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="d-flex justify-content-center mt-5">
+			<h2>Update New Rule</h2>
+		</div>
+		<div class="d-flex justify-content-center mt-5">
+			<div>
+				<form th:action="@{/ruleName/update/{id}(id=${ruleName.id})}" th:object="${ruleName}" method="post">
+					<div class="mb-3">
+						<label class="form-label" for="name">Name</label>
+						<input class="form-control" type="text" id="name" th:field="*{name}" th:value="${ruleName.name}" autofocus>
+						<p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="description">Description</label>
+						<input class="form-control" type="text" id="description" th:field="*{description}" th:value="${ruleName.description}">
+						<p class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="json">Json</label>
+						<input class="form-control" type="text" id="json" th:field="*{json}" th:value="${ruleName.json}">
+						<p class="text-danger" th:if="${#fields.hasErrors('json')}" th:errors="*{json}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="template">Template</label>
+						<input class="form-control" type="text" id="template" th:field="*{template}" th:value="${ruleName.template}">
+						<p class="text-danger" th:if="${#fields.hasErrors('template')}" th:errors="*{template}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="sqlStr">SqlStr</label>
+						<input class="form-control" type="text" id="sqlStr" th:field="*{sqlStr}" th:value="${ruleName.sqlStr}">
+						<p class="text-danger" th:if="${#fields.hasErrors('sqlStr')}" th:errors="*{sqlStr}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="sqlPart">SqlPart</label>
+						<input class="form-control" type="text" id="sqlPart" th:field="*{sqlPart}" th:value="${ruleName.sqlPart}">
+						<p class="text-danger" th:if="${#fields.hasErrors('sqlPart')}" th:errors="*{sqlPart}"></p>
+					</div>
+					<div class="mb-3">
+						<div>
+							<button type="submit" class="btn btn-danger btn-sm" formmethod="get" formaction="/ruleName/list">Cancel</button>
+							<button type="submit" class="btn btn-primary btn-sm" formmethod="post" th:formaction="@{/ruleName/update/{id}(id=${ruleName.id})}">Update RuleName</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

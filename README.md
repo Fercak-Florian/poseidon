@@ -16,5 +16,3 @@ Then run the application
 
 #### Step 4 : Use your brower to go to the localhost:8080 address
 Enjoy testing the app :-)
-# poseidon
-# poseidon

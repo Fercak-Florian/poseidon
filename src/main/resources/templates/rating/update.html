@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Home</title>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="d-flex justify-content-center mt-5">
+			<h2>Update Rating</h2>
+		</div>
+		<div class="d-flex justify-content-center mt-5">
+			<div>
+				<form th:action="@{/rating/update/{id}(id=${rating.id})}" th:object="${rating}" method="post">
+					<div class="mb-3">
+						<label class="form-label" for="moodysRating">Moodys Rating</label>
+						<input class="form-control" type="text" id="moodysRating" name="moodysRating" th:value="${rating.moodysRating}" autofocus>
+						<p class="text-danger" th:if="${#fields.hasErrors('moodysRating')}" th:errors="*{moodysRating}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="sandRating">Sand Rating</label>
+						<input class="form-control" type="text" id="sandRating" name="sandRating" th:value="${rating.sandRating}">
+						<p class="text-danger" th:if="${#fields.hasErrors('sandRating')}" th:errors="*{sandRating}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="fitchRating">Fitch Rating</label>
+						<input class="form-control" type="text" id="fitchRating" name="fitchRating" th:value="${rating.fitchRating}">
+						<p class="text-danger" th:if="${#fields.hasErrors('fitchRating')}" th:errors="*{fitchRating}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="fitchRating">Order Number</label>
+						<input class="form-control" type="number" id="orderNumber" name="orderNumber" th:value="${rating.orderNumber}">
+						<p class="text-danger" th:if="${#fields.hasErrors('orderNumber')}" th:errors="*{orderNumber}"></p>
+					</div>
+					<div class="mb-3">
+						<div>
+							<button type="submit" class="btn btn-danger btn-sm" formmethod="get" formaction="/rating/list">Cancel</button>
+							<button type="submit" class="btn btn-primary btn-sm" formmethod="post" th:formaction="@{/rating/update/{id}(id=${rating.id})}">Update Rating</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

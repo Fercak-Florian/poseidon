@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Home</title>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="d-flex justify-content-center mt-5">
+			<h2>Add New Rule</h2>
+		</div>
+		<div class="d-flex justify-content-center mt-5">
+			<div>
+				<form th:action="@{/ruleName/validate}" th:object="${ruleName}" method="post">
+					<div class="mb-3">
+						<label class="form-label" for="name">Name</label>
+						<input class="form-control" type="text" id="name" th:field="*{name}" autofocus placeholder="Name">
+						<p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="description">Description</label>
+						<input class="form-control" type="text" id="description" th:field="*{description}" placeholder="Description">
+						<p class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="json">Json</label>
+						<input class="form-control" type="text" id="json" th:field="*{json}" placeholder="Json">
+						<p class="text-danger" th:if="${#fields.hasErrors('json')}" th:errors="*{json}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="template">Template</label>
+						<input class="form-control" type="text" id="template" th:field="*{template}" placeholder="Template">
+						<p class="text-danger" th:if="${#fields.hasErrors('template')}" th:errors="*{template}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="sqlStr">SqlStr</label>
+						<input class="form-control" type="text" id="sqlStr" th:field="*{sqlStr}" placeholder="SqlStr">
+						<p class="text-danger" th:if="${#fields.hasErrors('sqlStr')}" th:errors="*{sqlStr}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="sqlPart">SqlPart</label>
+						<input class="form-control" type="text" id="sqlPart" th:field="*{sqlPart}" placeholder="SqlPart">
+						<p class="text-danger" th:if="${#fields.hasErrors('sqlPart')}" th:errors="*{sqlPart}"></p>
+					</div>
+					<div class="mb-3">
+						<div>
+							<button type="submit" class="btn btn-danger btn-sm" formmethod="get" formaction="/ruleName/list">Cancel</button>
+							<button type="submit" class="btn btn-primary btn-sm" formmethod="post" formaction="/ruleName/validate">Add RuleName</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Home</title>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="d-flex justify-content-center mt-5">
+			<h2>Add New Bid</h2>
+		</div>
+		<div class="d-flex justify-content-center mt-5">
+			<div>
+				<form th:action="@{/bid/validate}" th:object="${bid}" method="post">
+					<div class="mb-3">
+						<label class="form-label" for="account">Account</label>
+						<input class="form-control" type="text" id="account" th:field="*{account}" placeholder="Account" autofocus>
+						<p class="text-danger" th:if="${#fields.hasErrors('account')}" th:errors="*{account}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="type">Type</label>
+						<input class="form-control" type="text" id="type" th:field="*{type}" placeholder="Type">
+						<p class="text-danger" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></p>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="bidquantity" >Bid Quantity</label>
+						<input class="form-control" type="number" step="0.01" id="bidquantity" th:field="*{bidQuantity}" placeholder="Bid quantity">
+						<p class="text-danger" th:if="${#fields.hasErrors('bidQuantity')}" th:errors="*{bidQuantity}"></p>
+					</div>
+					<div class="mb-3">
+						<button type="submit" class="btn btn-danger btn-sm" formmethod="get" formaction="/bid/list">Cancel</button>
+						<button type="submit" class="btn btn-primary btn-sm" formmethod="post" formaction="/bid/validate">Add BidList</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

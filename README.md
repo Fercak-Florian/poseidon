@@ -1,5 +1,7 @@
 # Poseidon - Trading App
-This application has been developed to manage financials products. You can see, add, modify and delete financials products.  
+This is a web application.  
+It has been developed to manage financials products.  
+You can see, add, modify and delete financials products.  
 It's possible to log in as a user or as an admin.  
 Credentials are available in the credentials.txt file.
 

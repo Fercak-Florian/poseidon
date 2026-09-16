@@ -16,9 +16,9 @@ Credentials are available in the credentials.txt file.
  
 #### Step 1 : download this project
  
-#### Step 2 : dockerise the app
+#### Step 2 : dockerize the app
 At the root's project, run the folowing command : docker compose up -d
 
-#### Step 4 : Use your brower and go to the localhost:8087 address
+#### Step 4 : Use your browser and go to the localhost:8087 address
 Use credendials available in credentials.txt file to login.  
 Enjoy testing the app :-)
